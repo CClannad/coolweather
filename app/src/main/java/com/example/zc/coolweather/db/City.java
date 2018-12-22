@@ -1,4 +1,4 @@
-package com.example.zc.coolweather;
+package com.example.zc.coolweather.db;
 
 import org.litepal.crud.LitePalSupport;
 
@@ -24,11 +24,11 @@ public class City extends LitePalSupport {
         return provinceId;
     }
 
-    public String getCity() {
+    public String getCityName() {
         return city;
     }
 
-    public void setCity(String city) {
+    public void setCityName(String city) {
         this.city = city;
     }
 

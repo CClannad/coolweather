@@ -1,4 +1,4 @@
-package com.example.zc.coolweather;
+package com.example.zc.coolweather.db;
 import org.litepal.crud.LitePalSupport;
 
 public class Province extends LitePalSupport{

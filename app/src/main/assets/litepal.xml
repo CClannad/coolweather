@@ -3,8 +3,8 @@
     <dbname value = "cool_weather"></dbname>
     <version value="1"></version>
     <list>
-        <mapping class = "com.example.zc.coolweather.android.db.Province"/>
-        <mapping class = "com.example.zc.coolweather.android.db.City"/>
-        <mapping class = "com.example.zc.coolweather.android.db.County"/>
+        <mapping class = "com.example.zc.coolweather.db.Province"/>
+        <mapping class = "com.example.zc.coolweather.db.City"/>
+        <mapping class = "com.example.zc.coolweather.db.County"/>
     </list>
 </litepal>
