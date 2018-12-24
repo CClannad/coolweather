@@ -125,24 +125,19 @@ public class WeatherActivity extends AppCompatActivity {
             @Override
             public void onError(Throwable throwable) {
                 Log.i("Log", "error", throwable);
-                //swipeRefreshLayout.setRefreshing(false);
             }
 
             @Override
             public void onSuccess(List<Weather> list) {
-                //Log.i("Log", "onSuccess: " + new Gson().toJson(list));
                 showWeatherInfo(list.get(0));
-                //swipeRefreshLayout.setRefreshing(false);
             }
         });
-        //loadBingPic();
     }
 
     public void requestAir(String weatherId) {
         HeWeather.getAirNow(this, weatherId, new HeWeather.OnResultAirNowBeansListener() {
             @Override
             public void onError(Throwable throwable) {
-                Log.i("Log", "error", throwable);
                 swipeRefreshLayout.setRefreshing(false);
             }
 
@@ -156,15 +151,12 @@ public class WeatherActivity extends AppCompatActivity {
 
     private void showWeatherInfo(Weather weather) {
         String cityName = weather.getBasic().getLocation();
-        Log.i("Tag", cityName);
         titleCity.setText(cityName);
         String updateTime = weather.getUpdate().getLoc();
         titleUpdateTime.setText(updateTime);
         String degree = weather.getNow().getTmp() + "℃";
         degreeText.setText(degree);
         String weatherInfo = weather.getNow().getCond_txt();
-        Log.i("Tag", weatherInfo);
-        System.out.println(weatherInfo + "??????");
         weatherInfoText.setText(weatherInfo);
         if (weatherInfo.equals("晴")) {
             weatherInfoImg.setImageResource(R.drawable.qing);
