@@ -95,7 +95,7 @@ public class WeatherActivity extends AppCompatActivity {
             loadBingPic();
         }
 
-        HeConfig.init("HE1812221300471524", "2ad26945ae204aba8e71ba4d313b8b5c");
+        HeConfig.init("HE1812240000381297", "09cf15ded9524870a3dc57e64a40bcab");
         HeConfig.switchToFreeServerNode();
 
         String weatherId = getIntent().getStringExtra("weather_id");
