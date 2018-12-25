@@ -18,7 +18,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.marvelous.weatherapplication.util.HttpUtil;
+import com.example.zc.coolweather.util.HttpUtil;
 
 import java.io.IOException;
 import java.util.List;
@@ -46,7 +46,7 @@ public class WeatherActivity extends AppCompatActivity {
     private TextView comfortText;
     private TextView carWashText;
     private TextView sportText;
-
+    private LinearLayout baseinfoLayout;
     private ImageView weatherInfoImg;
     private ImageView bingPicImg;
 
@@ -71,7 +71,7 @@ public class WeatherActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         navButton = findViewById(R.id.nav_button);
 
-
+        baseinfoLayout = findViewById(R.id.base_info);
         bingPicImg = findViewById(R.id.bing_pic_img);
 
         weatherLayout = findViewById(R.id.weather_layout);
@@ -170,6 +170,19 @@ public class WeatherActivity extends AppCompatActivity {
             weatherInfoImg.setImageResource(R.drawable.yintian);
         }
         forecastLayout.removeAllViews();
+        baseinfoLayout.removeAllViews();
+        View v = LayoutInflater.from(this).inflate(R.layout.base_info_item, baseinfoLayout, false);
+        TextView ss = v.findViewById(R.id.ss_text);
+        TextView sr = v.findViewById(R.id.sr_text);
+        TextView mr = v.findViewById(R.id.mr_text);
+        TextView ms = v.findViewById(R.id.ms_text);
+        List<ForecastBase> dailyForecasts = weather.getDaily_forecast();
+        ForecastBase forecast = dailyForecasts.get(0);
+        ss.setText("日落时间 " + forecast.getSs());
+        sr.setText("日出时间 " + forecast.getSr());
+        mr.setText("月出时间 " + forecast.getMr());
+        ms.setText("月落时间 " + forecast.getMs());
+        baseinfoLayout.addView(v);
         for (ForecastBase forecastBase : weather.getDaily_forecast()) {
             View view = LayoutInflater.from(this).inflate(R.layout.forecast_item, forecastLayout, false);
             TextView dateText = view.findViewById(R.id.date_text);
